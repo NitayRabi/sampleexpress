@@ -16,11 +16,12 @@ const userRoutes = class UserRoutes {
     }
 
     initRouter() {
+        this.router.route(this.prefix + '')
+            .get(this.controllers.users.getAll)
+            .put(this.controllers.users.update)
+            .post(this.controllers.users.add);
         this.router.route(this.prefix + '/:id')
-            .get(this.controllers.users.getUser)
-            .put(this.controllers.users.updateUser)
-            .post(this.controllers.users.addUser)
-            .delete(this.controllers.users.deleteUser);
+            .get(this.controllers.users.getById)
     }
 };
 

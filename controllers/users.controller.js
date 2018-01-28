@@ -1,47 +1,10 @@
-const usersController = class UsersController {
-    getUser(req, res) {
-        /*
-        Use services here for queries, parsing and etc...
-         */
-        const id = req.params.id;
-        return res.status(200).json({
-            success: true,
-            message: 'Got user no' + id
-        })
-    };
+const BsCRUDController = require('../abstract/bs.crud.controller');
+const SCHEMA = require('../schema');
 
-    deleteUser(req, res) {
-        /*
-        Use services here for queries, parsing and etc...
-         */
-        const id = req.params.id;
-        return res.status(200).json({
-            success: true,
-            message: 'deleted user no' + id
-        })
-    };
-
-    addUser(req, res) {
-        /*
-        Use services here for queries, parsing and etc...
-         */
-        const id = req.params.id;
-        return res.status(200).json({
-            success: true,
-            message: 'Added user no' + id
-        })
-    };
-
-    updateUser(req, res) {
-        /*
-        Use services here for queries, parsing and etc...
-         */
-        const id = req.params.id;
-        return res.status(200).json({
-            success: true,
-            message: 'Updated user no' + id
-        })
-    };
+const usersController = class UsersController extends BsCRUDController {
+    constructor() {
+        super(SCHEMA.User);
+    }
 };
 
 module.exports = usersController;
